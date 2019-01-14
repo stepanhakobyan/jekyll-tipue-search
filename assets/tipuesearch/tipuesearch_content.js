@@ -35,31 +35,13 @@ layout: null
  {%- for post in site.posts -%}
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
-   // {{ document.url | relative_url | jsonify }}
-   // {{ document.url | relative_url }}
-   // {{ document.url }}
- */
- /*
-   // food {{ post.food | smartify | strip_html | normalize_whitespace | jsonify }}
  */
  /*
    // hlinks {{ post.hlinks | smartify | strip_html | normalize_whitespace | jsonify }}
  */
     {%- for tag in post.hlinks -%}
- /*
-   // {{ tag | smartify | strip_html | normalize_whitespace | jsonify }}
- */
     {%- endfor -%}
- /*
-   // categories
- */
- /*
-   // {{ post.categories | smartify | strip_html | normalize_whitespace | jsonify }}
- */
     {%- for category in post.categories -%}
- /*
-   // {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
- */
     {%- endfor -%}
  {%- endfor -%}
  
@@ -84,24 +66,10 @@ layout: null
   {%- endfor -%}
 {%- endif -%}
 
- /*
-   // site.tipue_search.include.collections
- */
 {%- for collection in site.tipue_search.include.collections -%}
- /*
-   // collection
- */
   {%- assign documents = site.documents | where:"collection",collection -%}
   {%- for document in documents -%}
- /*
-   // document
- */
     {%- unless document.exclude_from_search == true or excluded_files contains document.path -%}
- /*
-   // {{ document.url | relative_url | jsonify }}
-   // {{ document.url | relative_url }}
-   // {{ document.url }}
- */
       {%- assign has_excluded_taxonomy = false -%}
       {%- for tag in document.tags -%}
         {%- if excluded_taxonomies contains tag -%}
@@ -130,15 +98,12 @@ var tipuesearch = {"pages": [
     "tags": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
     "url": {{ document.url | relative_url | jsonify }}
   }
-    {%- for category in document.categories -%}
- /*
-   // {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
- */
+    {%- for hlink in document.hlinks -%}
   ,{
     "title": {{ document.title | smartify | strip_html | normalize_whitespace | jsonify }},
     "text": {{ document.content | strip_html | normalize_whitespace | jsonify }},
     "tags": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
-    "url": {{ document.url | relative_url | jsonify }} + "#" + {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
+    "url": {{ document.url | relative_url | jsonify }} + "#" + {{ hlink | smartify | strip_html | normalize_whitespace | jsonify }}
   }
     {%- endfor -%}
   
