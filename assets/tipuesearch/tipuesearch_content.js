@@ -126,6 +126,19 @@ var tipuesearch = {"pages": [
     "text": {{ document.content | strip_html | normalize_whitespace | jsonify }},
     "tags": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
     "url": {{ document.url | relative_url | jsonify }}
-  }{%- unless forloop.last -%},{%- endunless -%}
+  }
+    {%- for category in document.categories -%}
+ /*
+   // {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
+  ,{
+    "title": {{ document.title | smartify | strip_html | normalize_whitespace | jsonify }},
+    "text": {{ document.content | strip_html | normalize_whitespace | jsonify }},
+    "tags": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
+    "url": {{ document.url | relative_url | jsonify }} + "#" + {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
+  }
+    {%- endfor -%}
+  
+  {%- unless forloop.last -%},{%- endunless -%}
 {%- endfor -%}
 ]};
