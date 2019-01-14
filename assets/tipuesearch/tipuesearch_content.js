@@ -32,9 +32,9 @@ layout: null
   /*
     //site.static_files
   */
- {%- for file in site.static_files -%}
+ {%- for post in site.posts -%}
  /*
-   // {{ file.path | smartify | strip_html | normalize_whitespace | jsonify }}
+   // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
  */
  {%- endfor -%}
  
