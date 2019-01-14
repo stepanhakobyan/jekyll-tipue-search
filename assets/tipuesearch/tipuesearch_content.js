@@ -80,10 +80,25 @@ layout: null
     {%- endunless -%}
   {%- endfor -%}
 {%- endif -%}
+
+ /*
+   // site.tipue_search.include.collections
+ */
 {%- for collection in site.tipue_search.include.collections -%}
+ /*
+   // collection
+ */
   {%- assign documents = site.documents | where:"collection",collection -%}
   {%- for document in documents -%}
+ /*
+   // document
+ */
     {%- unless document.exclude_from_search == true or excluded_files contains document.path -%}
+ /*
+   // {{ document.url | relative_url | jsonify }}
+   // {{ document.url | relative_url }}
+   // {{ document.url }}
+ */
       {%- assign has_excluded_taxonomy = false -%}
       {%- for tag in document.tags -%}
         {%- if excluded_taxonomies contains tag -%}
