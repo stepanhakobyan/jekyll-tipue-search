@@ -29,11 +29,6 @@ layout: null
   {%- endunless -%}
 
     // hlinks in a post
-    {%- for hlink in post.hlinks -%}
-      // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}#{{ hlink }}
-      // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
-      // hlink is {{ hlink | smartify | strip_html | normalize_whitespace | jsonify }}
-    {%- endfor -%}
   
 {%- endfor -%}
 {%- if site.tipue_search.include.pages == true -%}
