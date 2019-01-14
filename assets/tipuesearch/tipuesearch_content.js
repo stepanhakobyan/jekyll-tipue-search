@@ -40,6 +40,9 @@ layout: null
    // {{ document.url }}
  */
  /*
+   // food {{ post.food | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
+ /*
    // {{ post.hlinks | smartify | strip_html | normalize_whitespace | jsonify }}
  */
     {%- for tag in post.hlinks -%}
