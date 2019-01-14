@@ -36,6 +36,11 @@ layout: null
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
  */
+    {%- for tag in post.tags -%}
+ /*
+   // {{ tag | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
+    {%- endfor -%}
  {%- endfor -%}
  
 {%- if site.tipue_search.include.pages == true -%}
