@@ -26,6 +26,13 @@ layout: null
       {%- assign index = index | push: post | uniq -%}
     {%- endunless -%}
   {%- endunless -%}
+
+  
+    {%- for hlink in post.hlinks -%}
+      // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}#{{ hlink }}
+      // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
+    {%- endfor -%}
+  
 {%- endfor -%}
 {%- if site.tipue_search.include.pages == true -%}
   {%- for page in site.html_pages -%}
