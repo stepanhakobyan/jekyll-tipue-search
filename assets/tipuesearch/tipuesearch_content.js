@@ -36,9 +36,23 @@ layout: null
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
  */
+ /*
+   // {{ post.hlinks | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
     {%- for tag in post.hlinks -%}
  /*
    // {{ tag | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
+    {%- endfor -%}
+ /*
+   // categories
+ */
+ /*
+   // {{ post.categories | smartify | strip_html | normalize_whitespace | jsonify }}
+ */
+    {%- for category in post.categories -%}
+ /*
+   // {{ category | smartify | strip_html | normalize_whitespace | jsonify }}
  */
     {%- endfor -%}
  {%- endfor -%}
