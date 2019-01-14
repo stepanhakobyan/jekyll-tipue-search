@@ -36,7 +36,7 @@ layout: null
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
  */
-    {%- for tag in post.tags -%}
+    {%- for tag in post.hlinks -%}
  /*
    // {{ tag | smartify | strip_html | normalize_whitespace | jsonify }}
  */
