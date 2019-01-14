@@ -9,6 +9,7 @@ layout: null
 {%- assign excluded_tags = site.tipue_search.exclude.tags | uniq -%}
 {%- assign excluded_categories = site.tipue_search.exclude.categories | uniq -%}
 {%- assign excluded_taxonomies = excluded_tags | concat: excluded_categories | uniq -%}
+// hlinks in posts
 {%- for post in site.posts -%}
   {%- unless post.exclude_from_search == true or excluded_files contains post.path -%}
     {%- assign has_excluded_taxonomy = false -%}
@@ -27,10 +28,11 @@ layout: null
     {%- endunless -%}
   {%- endunless -%}
 
-  
+    // hlinks in a post
     {%- for hlink in post.hlinks -%}
       // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}#{{ hlink }}
       // hlink in {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
+      // hlink is {{ hlink | smartify | strip_html | normalize_whitespace | jsonify }}
     {%- endfor -%}
   
 {%- endfor -%}
