@@ -35,6 +35,9 @@ layout: null
  {%- for post in site.posts -%}
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
+   // {{ document.url | relative_url | jsonify }}
+   // {{ document.url | relative_url }}
+   // {{ document.url }}
  */
  /*
    // {{ post.hlinks | smartify | strip_html | normalize_whitespace | jsonify }}
