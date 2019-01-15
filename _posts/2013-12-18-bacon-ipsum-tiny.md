@@ -3,7 +3,7 @@ layout: post
 title: "Bacon Ipsum (Tiny)"
 categories: loremipsum
 hlinks:
-  - new-header
+  - { name: "New Header", link: new-header }
 ---
 
 
