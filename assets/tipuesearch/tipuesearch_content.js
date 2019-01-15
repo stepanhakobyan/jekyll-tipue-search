@@ -102,10 +102,10 @@ var tipuesearch = {"pages": [
   }
     {%- for hlink in document.hlinks -%}
   ,{
-    "title": {{ document.title | smartify | strip_html | normalize_whitespace | jsonify }},
+    "title": {{ hlink.name | smartify | strip_html | normalize_whitespace | jsonify }},
     "text": {{ document.content | strip_html | normalize_whitespace | jsonify }},
     "tags": {{ taxonomies | join: " " | normalize_whitespace | jsonify }},
-    "url": {{ document.url | relative_url | jsonify }} + "#" + {{ hlink | smartify | strip_html | normalize_whitespace | jsonify }}
+    "url": {{ document.url | relative_url | jsonify }} + "#" + {{ hlink.link | smartify | strip_html | normalize_whitespace | jsonify }}
   }
     {%- endfor -%}
   
