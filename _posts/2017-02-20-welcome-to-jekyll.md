@@ -5,7 +5,8 @@ date:   2017-02-20 12:27:31 -0800
 categories: jekyll update
 food: Pizza
 hlinks:
-  - {name: "Header is here", link: header-is-here}
+  - name: "Header is here"
+    link: header-is-here
   - {name: "Տարօրինակ մի բան", link: տարօրինակ-մի-բան}
 ---
 
