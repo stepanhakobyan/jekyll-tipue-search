@@ -35,13 +35,15 @@ layout: null
  {%- for post in site.posts -%}
  /*
    // {{ post.path | smartify | strip_html | normalize_whitespace | jsonify }}
- */
- /*
    // hlinks {{ post.hlinks | smartify | strip_html | normalize_whitespace | jsonify }}
  */
     {%- for tag in post.hlinks -%}
-    {%- endfor -%}
-    {%- for category in post.categories -%}
+ /*
+   // {{ tag | smartify | strip_html | normalize_whitespace | jsonify }}
+   // {{ tag }}
+   // {{ tag.name }}
+   // {{ tag.age }}
+ */
     {%- endfor -%}
  {%- endfor -%}
  
